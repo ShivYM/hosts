@@ -20,6 +20,7 @@ window.addEventListener('message', function(eventData) {
             //     return;
             // }
 
+            console.log(event)
             if (event.event_code === 'custom-event') {
                 iframe = document.getElementById('ymIframeId');
                 var eventData = event.data.data;
