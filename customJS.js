@@ -1,4 +1,4 @@
-window.parent.addEventListener('message', function(eventData) {
+window.addEventListener('message', function(eventData) {
     console.log("CHECKING FOR EVENT : SHIV");
     console.log(eventData);
     try { 
