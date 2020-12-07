@@ -58,7 +58,7 @@ window.addEventListener('message', function (eventData) {
                             // window.top.postMessage('hello', '*');    
                             // myiframe.postMessage('hello', '*');
                             // myiframe.contentWindow.postMessage('otp', '*');
-                            let myiframe = document.getElementById('webviewId')
+                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'hello', data: JSON.stringify({
                                   event: {
