@@ -36,7 +36,7 @@ window.addEventListener('message', function(eventData) {
                         
 
                         var sourceFrame = null; // this is the IFRAME which send the postMessage
-                        var myFrames = document.getElementsByTagName("IFRAME");
+                        var myFrames = document.getElementsByTagName("iframe");
                         // detect the source for IFRAMEs with same-origin URL
                         for (var i=0; i<myFrames.length; i++) {
                             console.log("Count IFRAME", i);
