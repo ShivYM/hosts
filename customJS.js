@@ -31,7 +31,7 @@ window.addEventListener('message', function (eventData) {
                         console.log(event.data)
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
-                        let myiframe = document.getElementByName('webviewId')
+                        let myiframe = document.getElementById('webviewId')
                         // myiframe.contentWindow.postMessage('hello', '*');
 
 
