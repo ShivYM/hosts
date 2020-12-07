@@ -1,7 +1,7 @@
-window.addEventListener('message', function(eventData) {
+window.addEventListener('message', function (eventData) {
     console.log("CHECKING FOR EVENT : SHIV");
     console.log(eventData);
-    try { 
+    try {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
             //  if (event.event_code === "custom-event" && event.data && event.data.code === "otp") {
@@ -31,25 +31,36 @@ window.addEventListener('message', function(eventData) {
                         console.log(event.data)
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
-                        // let myiframe = document.getElementByName('ymIframe')
-                        // myiframe.contentWindow.postMessage('hello', '*');
-                        
+                        let myiframe = document.getElementByName('webviewId')
+                        myiframe.contentWindow.postMessage('hello', '*');
+
 
                         var sourceFrame = null; // this is the IFRAME which send the postMessage
-                        var myFrames = document.getElementsByTagName("iframe");
+                        // var myFrames = document.getElementsByTagName("iframe");
                         // detect the source for IFRAMEs with same-origin URL
-                        for (var i=0; i<myFrames.length; i++) {
-                            console.log("Count IFRAME", i);
-                            console.log(myFrames[i].contentWindow);
-                        }
+                        // for (var i = 0; i < myFrames.length; i++) {
+                        //     console.log("Count IFRAME", i);
+                        //     console.log(myFrames[i].contentWindow);
+                        // }
 
-                        
-                        // setTimeout(() => {
-                        //     // window.top.postMessage('hello', '*');    
-                        //     myiframe.postMessage('hello', '*');
-                        //     myiframe.contentWindow.postMessage('otp', '*');
-                        // }, 2000);
-                        
+
+                        // var ifs = window.top.document.getElementsByTagName("iframe");
+                        // for (var i = 0, len = ifs.length; i < len; i++) {
+                        //     var f = ifs[i];
+                        //     var fDoc = f.contentDocument || f.contentWindow.document;
+                        //     if (fDoc === document) {
+                        //         alert(f.getAttribute("hash"));
+                        //     }
+                        // }
+
+
+                        setTimeout(() => {
+                            // window.top.postMessage('hello', '*');    
+                            // myiframe.postMessage('hello', '*');
+                            // myiframe.contentWindow.postMessage('otp', '*');
+                            myiframe.contentWindow.postMessage('hello', '*');
+                        }, 2000);
+
                         return;
                     case "pdf_download":
                         var name = eventData.doc_name;
@@ -60,15 +71,15 @@ window.addEventListener('message', function(eventData) {
                         for (let index = 0; index < eventData.body.length; index++) {
                             var name = eventData.body[index].doc_name;
                             var byteArray = convertToByteArray(eventData.body[index].body);
-                            saveByteArray([byteArray], name + ".pdf");    
+                            saveByteArray([byteArray], name + ".pdf");
                         }
                     default:
                         console.log('No event handler defined for ' + event.data.code);
                         return;
                 }
             }
-         }
-         
+        }
+
     } catch (error) {
         return;
     }
