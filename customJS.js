@@ -58,7 +58,14 @@ window.addEventListener('message', function (eventData) {
                             // window.top.postMessage('hello', '*');    
                             // myiframe.postMessage('hello', '*');
                             // myiframe.contentWindow.postMessage('otp', '*');
-                            myiframe.contentWindow.postMessage('hello', '*');
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'hello', data: JSON.stringify({
+                                  event: {
+                                    code: "personalinfo",
+                                    data: 'Hi there user'
+                                  }
+                                })
+                              }), '*');
                         }, 2000);
 
                         return;
