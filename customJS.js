@@ -32,7 +32,7 @@ window.addEventListener('message', function (eventData) {
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
                         let myiframe = document.getElementByName('webviewId')
-                        myiframe.contentWindow.postMessage('hello', '*');
+                        // myiframe.contentWindow.postMessage('hello', '*');
 
 
                         var sourceFrame = null; // this is the IFRAME which send the postMessage
