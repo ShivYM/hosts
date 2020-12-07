@@ -29,7 +29,8 @@ window.addEventListener('message', function(eventData) {
                     case "otp":
                         console.log("Within event block");
                         console.log(event.data)
-                        // var myWindow = window.open(eventData.url, "new window", "height=500, width=500, top=400, left=400");
+                        // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
+                        window.top.postMessage('hello', '*')
                         return;
                     case "pdf_download":
                         var name = eventData.doc_name;
