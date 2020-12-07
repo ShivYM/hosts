@@ -31,10 +31,12 @@ window.addEventListener('message', function(eventData) {
                         console.log(event.data)
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
+                        let myiframe = document.getElementByName('ymIframe')
+                        myiframe.contentWindow.postMessage('hello', '*');
+                        
                         setTimeout(() => {
-                            window.top.postMessage(JSON.stringify({
-                                event_code: 'otp', data: "OTP MSG"
-                              }), '*');    
+                            // window.top.postMessage('hello', '*');    
+                        myiframe.contentWindow.postMessage('hello', '*');
                         }, 2000);
                         
                         return;
