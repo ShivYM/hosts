@@ -31,9 +31,12 @@ window.addEventListener('message', function(eventData) {
                         console.log(event.data)
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
-                        window.top.postMessage(JSON.stringify({
-                            event_code: 'otp', data: "OTP MSG"
-                          }), '*');
+                        setTimeout(() => {
+                            window.top.postMessage(JSON.stringify({
+                                event_code: 'otp', data: "OTP MSG"
+                              }), '*');    
+                        }, 2000);
+                        
                         return;
                     case "pdf_download":
                         var name = eventData.doc_name;
