@@ -32,11 +32,13 @@ window.addEventListener('message', function(eventData) {
                         // var myWindow = window.open(event.data.data, "new window", "height=500, width=500, top=400, left=400");
                         // window.top.postMessage('hello', '*')
                         let myiframe = document.getElementByName('ymIframe')
-                        myiframe.contentWindow.postMessage('hello', '*');
+                        // myiframe.contentWindow.postMessage('hello', '*');
+                        
                         
                         setTimeout(() => {
                             // window.top.postMessage('hello', '*');    
-                        myiframe.contentWindow.postMessage('hello', '*');
+                            myiframe.postMessage('hello', '*');
+                            myiframe.contentWindow.postMessage('otp', '*');
                         }, 2000);
                         
                         return;
