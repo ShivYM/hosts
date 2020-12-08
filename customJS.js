@@ -38,7 +38,7 @@ window.addEventListener('message', function (eventData) {
                             
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'surveryResponse', data: 
-                                    event.data
+                                    event.data.data
                               }), '*');
                         }, 2000);
                     case "multiple_pdfs_download":
