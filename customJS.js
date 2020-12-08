@@ -43,6 +43,7 @@ window.addEventListener('message', function (eventData) {
                         }, 2000);
                         return;
                     case "validationResponse":
+                        console.log("validate otp custom JS")
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
 
@@ -53,6 +54,7 @@ window.addEventListener('message', function (eventData) {
                         }, 2000);
                         return;
                     case "resetResponse":
+                        console.log("reset custom JS")
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
 
