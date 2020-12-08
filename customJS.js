@@ -45,7 +45,7 @@ window.addEventListener('message', function (eventData) {
                     case "validationResponse":
                         console.log("validate otp custom JS")
                         setTimeout(() => {
-                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
+                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewAccidentId')
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'validationResponse', data:
@@ -56,7 +56,7 @@ window.addEventListener('message', function (eventData) {
                     case "resetResponse":
                         console.log("reset custom JS")
                         setTimeout(() => {
-                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
+                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewAccidentId')
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'resetResponse', data:
