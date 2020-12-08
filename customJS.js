@@ -49,7 +49,7 @@ window.addEventListener('message', function (eventData) {
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'validationResponse', data:
-                                    "event.data.data"
+                                    event.data.data
                             }), '*');
                         }, 2000);
                         return;
@@ -60,7 +60,7 @@ window.addEventListener('message', function (eventData) {
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'resetResponse', data:
-                                    "event.data.data"
+                                    event.data.data
                             }), '*');
                         }, 2000);
                         return;
