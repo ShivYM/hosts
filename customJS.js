@@ -23,26 +23,46 @@ window.addEventListener('message', function (eventData) {
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'hello', data: JSON.stringify({
-                                  event: {
-                                    code: "personalinfo",
-                                    data: 'Hi there user'
-                                  }
+                                    event: {
+                                        code: "personalinfo",
+                                        data: 'Hi there user'
+                                    }
                                 })
-                              }), '*');
+                            }), '*');
                         }, 2000);
 
                         return;
                     case "surveryResponse":
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
-                            
+
                             myiframe.contentWindow.postMessage(JSON.stringify({
-                                event_code: 'surveryResponse', data: 
+                                event_code: 'surveryResponse', data:
                                     event.data.data
-                              }), '*');
+                            }), '*');
                         }, 2000);
-                    case "multiple_pdfs_download":
-                        
+                        return;
+                    case "validationResponse":
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'validationResponse', data:
+                                    event.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
+                    case "resetResponse":
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'resetResponse', data:
+                                    event.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
+
                     default:
                         console.log('No event handler defined for ' + event.data.code);
                         return;
