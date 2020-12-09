@@ -48,8 +48,7 @@ window.addEventListener('message', function (eventData) {
 
                         sourceIframe = 'webviewAccidentId';
 
-                        switch (event.data.data.source)
-                        {
+                        switch (event.data.data.source) {
                             case 'Illness':
                                 sourceIframe = "webviewIllnessId";
                                 break;
@@ -60,7 +59,7 @@ window.addEventListener('message', function (eventData) {
                                 sourceIframe = sourceIframe;
                                 break;
                         }
-                         
+
 
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
@@ -76,8 +75,7 @@ window.addEventListener('message', function (eventData) {
 
                         sourceIframe = 'webviewAccidentId';
 
-                        switch (event.data.data.source)
-                        {
+                        switch (event.data.data.source) {
                             case 'Illness':
                                 sourceIframe = "webviewIllnessId";
                                 break;
@@ -93,11 +91,61 @@ window.addEventListener('message', function (eventData) {
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'resetResponse', data:
-                                    event.data.data
+                                    event.data.data.data
                             }), '*');
                         }, 2000);
                         return;
+                    case "payoutDetails":
+                        console.log("payout custom JS")
 
+                        sourceIframe = 'webviewAccidentId';
+
+                        switch (event.data.data.source) {
+                            case 'Illness':
+                                sourceIframe = "webviewIllnessId";
+                                break;
+                            case 'Death':
+                                sourceIframe = "webviewDeathId";
+                                break;
+                            default:
+                                sourceIframe = sourceIframe;
+                                break;
+                        }
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'resetResponse', data:
+                                    event.data.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
+                    case "claimStatusResponse":
+                        console.log("claim status custom JS")
+
+                        // sourceIframe = 'webviewAccidentId';
+
+                        // switch (event.data.data.source)
+                        // {
+                        //     case 'Illness':
+                        //         sourceIframe = "webviewIllnessId";
+                        //         break;
+                        //     case 'Death':
+                        //         sourceIframe = "webviewDeathId";
+                        //         break;
+                        //     default:
+                        //         sourceIframe = sourceIframe;
+                        //         break;
+                        // }
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById("webviewId")
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'resetResponse', data:
+                                    event.data.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
                     default:
                         console.log('No event handler defined for ' + event.data.code);
                         return;
