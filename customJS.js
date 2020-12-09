@@ -115,7 +115,7 @@ window.addEventListener('message', function (eventData) {
                             let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
-                                event_code: 'resetResponse', data:
+                                event_code: 'payoutDetails', data:
                                     event.data.data.data
                             }), '*');
                         }, 2000);
