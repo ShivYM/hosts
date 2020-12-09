@@ -44,8 +44,25 @@ window.addEventListener('message', function (eventData) {
                         return;
                     case "validationResponse":
                         console.log("validate otp custom JS")
+
+                        let sourceIframe = 'webviewAccidentId';
+
+                        switch (event.data.data.source)
+                        {
+                            case 'Illness':
+                                sourceIframe = "webviewIllnessId";
+                                break;
+                            case 'Death':
+                                sourceIframe = "webviewDeathId";
+                                break;
+                            default:
+                                sourceIframe = sourceIframe;
+                                break;
+                        }
+                         
+
                         setTimeout(() => {
-                            let myiframe = window.frames['ymIframe'].document.getElementById('webviewAccidentId')
+                            let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'validationResponse', data:
