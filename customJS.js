@@ -39,7 +39,7 @@ window.addEventListener('message', function (eventData) {
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'surveryResponse', data:
-                                    event.data.data
+                                    event.data.data.data
                             }), '*');
                         }, 2000);
                         return;
@@ -67,7 +67,7 @@ window.addEventListener('message', function (eventData) {
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
                                 event_code: 'validationResponse', data:
-                                    event.data.data
+                                    event.data.data.data
                             }), '*');
                         }, 2000);
                         return;
