@@ -5,6 +5,7 @@ window.addEventListener('message', function (eventData) {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
             console.log(event)
+            let sourceIframe;
             if (event.event_code === 'custom-event') {
                 iframe = document.getElementById('ymIframeId');
                 var eventData = event.data.data;
@@ -45,7 +46,7 @@ window.addEventListener('message', function (eventData) {
                     case "validationResponse":
                         console.log("validate otp custom JS")
 
-                        let sourceIframe = 'webviewAccidentId';
+                        sourceIframe = 'webviewAccidentId';
 
                         switch (event.data.data.source)
                         {
@@ -73,7 +74,7 @@ window.addEventListener('message', function (eventData) {
                     case "resetResponse":
                         console.log("reset custom JS")
 
-                        let sourceIframe = 'webviewAccidentId';
+                        sourceIframe = 'webviewAccidentId';
 
                         switch (event.data.data.source)
                         {
