@@ -141,7 +141,7 @@ window.addEventListener('message', function (eventData) {
                             let myiframe = window.frames['ymIframe'].document.getElementById("webviewId")
 
                             myiframe.contentWindow.postMessage(JSON.stringify({
-                                event_code: 'resetResponse', data:
+                                event_code: 'claimStatusResponse', data:
                                     event.data.data.data
                             }), '*');
                         }, 2000);
