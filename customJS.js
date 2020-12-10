@@ -149,6 +149,7 @@ window.addEventListener('message', function (eventData) {
                         console.log("submit custom JS")
 
                         sourceIframe = 'webviewAccidentId';
+                        console.log(event.data.data)
 
                         switch (event.data.data.source) {
                             case 'Illness':
