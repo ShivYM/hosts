@@ -18,8 +18,6 @@ window.addEventListener('message', function (eventData) {
                         var sourceFrame = null; // this is the IFRAME which send the postMessage
 
                         setTimeout(() => {
-                            // window.top.postMessage('hello', '*');    
-                            // myiframe.postMessage('hello', '*');
                             // myiframe.contentWindow.postMessage('otp', '*');
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
                             myiframe.contentWindow.postMessage(JSON.stringify({
@@ -188,6 +186,7 @@ window.addEventListener('message', function (eventData) {
                         //         sourceIframe = sourceIframe;
                         //         break;
                         // }
+                        console.log(event.data.data.data)
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById("webviewId")
 
