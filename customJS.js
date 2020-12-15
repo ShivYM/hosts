@@ -169,6 +169,58 @@ window.addEventListener('message', function (eventData) {
                             }), '*');
                         }, 2000);
                         return;
+                    case "preSubmitResponse":
+                        console.log("pre submit custom JS")
+
+                        sourceIframe = 'webviewAccidentId';
+                        console.log(event.data.data)
+
+                        switch (event.data.data.source) {
+                            case 'Illness':
+                                sourceIframe = "webviewIllnessId";
+                                break;
+                            case 'Death':
+                                sourceIframe = "webviewDeathId";
+                                break;
+                            default:
+                                sourceIframe = sourceIframe;
+                                break;
+                        }
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'preSubmitResponse', data:
+                                    event.data.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
+                    case "finalSubmitResponse":
+                        console.log("final submit custom JS")
+
+                        sourceIframe = 'webviewAccidentId';
+                        console.log(event.data.data)
+
+                        switch (event.data.data.source) {
+                            case 'Illness':
+                                sourceIframe = "webviewIllnessId";
+                                break;
+                            case 'Death':
+                                sourceIframe = "webviewDeathId";
+                                break;
+                            default:
+                                sourceIframe = sourceIframe;
+                                break;
+                        }
+                        setTimeout(() => {
+                            let myiframe = window.frames['ymIframe'].document.getElementById(sourceIframe)
+
+                            myiframe.contentWindow.postMessage(JSON.stringify({
+                                event_code: 'finalSubmitResponse', data:
+                                    event.data.data.data
+                            }), '*');
+                        }, 2000);
+                        return;
                     case "claimStatusResponse":
                         console.log("claim status custom JS")
 
