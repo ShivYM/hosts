@@ -32,6 +32,8 @@ window.addEventListener('message', function (eventData) {
 
                         return;
                     case "surveryResponse":
+                        console.log("within survery response")
+                        console.log(event.data.data)
                         setTimeout(() => {
                             let myiframe = window.frames['ymIframe'].document.getElementById('webviewId')
 
